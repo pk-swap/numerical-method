@@ -1,0 +1,22 @@
+
+import numpy as np
+def lagrangeInterpolation():
+    n=int(input("enter the number of variables:"))
+    x=np.zeros(n)
+    y=np.zeros(n)
+    for i in range(n):
+        x[i]=float(input(f"enter the independent value x[{i}]:"))
+        y[i]=float(input(f"enter the dependent value y[{i}]:"))
+        
+    xp=float(input("enter the value for xp:"))
+    
+    yp=0
+    for i in range(n):
+        mul=1
+        for j in range(n):
+            if(i!=j):
+                mul = mul * (xp - x[j]) / (x[i] - x[j])
+        yp = yp + mul * y[i]
+    print(f"Interpolated value at x = {xp} is y = {yp}")
+
+lagrangeInterpolation()
